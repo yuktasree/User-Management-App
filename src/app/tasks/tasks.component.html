@@ -1,0 +1,42 @@
+<div class="mb-4 px-4 position-relative text-center fw-bold me-5">
+    <h2>Your Tasks</h2>
+    <button type="submit" 
+            class="btn btn-success text-center fw-bold position-absolute end-0 top-0 me-5"
+            (click)="createTask()">
+        Create Task
+    </button>
+</div> 
+
+<div *ngIf="delMsg" class="alert alert-success text-center fw-bold mx-auto mt-3" 
+     style="max-width: 400px; padding: 15px; border-radius: 8px;"> 
+     {{ delMsg }}
+</div>
+
+<table class="table table-striped table-bordered text-center align-middle w-75 mx-auto mb-5 mt-4">
+    <thead class="table-dark">
+      <tr>
+        <th>Description</th>
+        <th>Target Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{ task.tdesc }}</td>
+        <td>{{ task.target | date }}</td>
+        <td>{{ task.done ? 'Done' : 'Pending' }}</td>
+        <td>
+            <div class="fw-bold">
+                <button type="submit" class="btn btn-outline-warning me-3" (click)="updateTask(task.tid)">Update</button>
+                <button type="submit" class="btn btn-outline-danger" (click)="deleteTask(task.tid)">Delete</button>
+            </div>
+        </td>
+      </tr>
+    </tbody>
+</table>
+  
+
+<div class="mb-3 text-center fw-bold">
+    <button type="submit" class="btn btn-warning" routerLink="/manage">Back</button>
+</div>

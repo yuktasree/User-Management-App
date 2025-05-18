@@ -1,0 +1,39 @@
+<div class="w-50 mx-auto mt-4 p-4 border rounded shadow">
+    <h4 class="text-center mb-4">Create/Update Task</h4>
+    
+    <form (ngSubmit)="saveTask(task.tid)">
+        <div class="mb-3">
+            <label for="desc" class="form-label fw-bold">Description</label>
+            <input
+                type="text"
+                class="form-control"
+                name="tdesc"
+                [(ngModel)]="task.tdesc"
+                required
+            />
+        </div>
+    
+        <div class="mb-3">
+            <label for="date" class="form-label fw-bold">Target Date</label>
+            <input
+                type="date"
+                class="form-control"
+                name="target"
+                [ngModel]="task.target | date: 'yyyy-MM-dd' "
+                (ngModelChange)="task.target = $event"
+                required
+            />
+        </div>
+    
+        <div class="text-center">
+            <button class="btn btn-warning me-3" routerLink="/tasks">
+                Cancel
+            </button>
+            <button type="submit" class="btn btn-success">
+                Save
+            </button>
+        </div>
+    </form>
+
+</div>
+  

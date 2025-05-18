@@ -1,0 +1,20 @@
+<div class="mb-80 text-center">
+    <h2>Login</h2>
+</div>
+
+<div *ngIf='flag' class="alert alert-danger text-center mx-auto mt-3" 
+     style="max-width: 400px; padding: 15px; border-radius: 8px;">
+    {{ errorMessage }}
+</div>
+
+<div class="mb-3 text-center fw-bold">
+    Username : <input type="text" name="username" [(ngModel)]="username">
+</div>
+
+<div class="mb-3 text-center fw-bold">
+    Password : <input type="password" name="password" [(ngModel)]="password">
+</div>
+
+<div class="mb-3 text-center fw-bold">
+    <button type="submit" class="btn btn-primary" (click)="handleLogin()">Login</button>
+</div>

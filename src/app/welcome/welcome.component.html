@@ -1,0 +1,21 @@
+
+<div class="mb-4 text-center fw-bold">
+    <button type="submit" class="btn btn-outline-success" (click)="welcomeMsg()">Get Welcome Message</button>
+</div>
+
+<div *ngIf="msg"
+    class="alert alert-success text-center fw-bold mx-auto mt-3" 
+    style="max-width: 400px; padding: 15px; border-radius: 8px;"> 
+    {{ msg }} 😎👋
+</div>
+
+<div class="mb-4 text-center fw-bold">
+    <button type="submit" class="btn btn-info" routerLink="/manage">Task Management</button>
+</div>
+
+<div class="mt-5 text-center fw-bold">
+    <button (click)="logout()" type="submit" class="btn btn-danger">Logout</button>
+</div>
+
+
+
